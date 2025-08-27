@@ -17,7 +17,7 @@
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
       flex-wrap: wrap;
     }
     header img {
@@ -52,4 +52,154 @@
       padding: 1rem;
       border: none;
       border-bottom: 1px solid #ccc;
-      backgroun
+      background: #f1f1f1;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .accordion button:hover {
+      background: #e0e0e0;
+    }
+    .accordion button.active {
+      background: #004080;
+      color: white;
+    }
+    .panel {
+      display: none;
+      padding: 1rem;
+      border-left: 3px solid #004080;
+      background: #fafafa;
+    }
+    /* Téléchargement */
+    .downloads {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .downloads a {
+      margin: 0.5rem;
+      padding: 0.8rem 1.2rem;
+      background: #004080;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .downloads a:hover {
+      background: #002a5c;
+    }
+    iframe {
+      width: 100%;
+      height: 350px;
+      border: none;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <img src="logo.pdf" alt="Logo formation">
+    <div>
+      <h1>Annualisation du temps de travail</h1>
+      <p>Maîtrisez l’annualisation du temps de travail pour sécuriser vos pratiques RH et optimiser la gestion de la paie.</p>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- Programme -->
+    <section class="accordion">
+      <h2>Programme de la formation</h2>
+      <button>Le cadre législatif et réglementaire</button>
+      <div class="panel">
+        <ul>
+          <li>Le travail effectif</li>
+          <li>Le cadre de référence de droit commun</li>
+          <li>Les régimes d’aménagement du temps de travail</li>
+        </ul>
+      </div>
+
+      <button>L’annualisation du temps de travail</button>
+      <div class="panel">
+        <ul>
+          <li>La mise en place</li>
+          <li>Le cadre de référence annuel</li>
+          <li>Les congés payés</li>
+          <li>La durée du travail</li>
+          <li>La programmation</li>
+          <li>La modification du calendrier prévisionnel</li>
+        </ul>
+      </div>
+
+      <button>Le cas particulier du temps partiel sur l’année</button>
+      <div class="panel">
+        <ul>
+          <li>Un cadre conventionnel strict</li>
+          <li>La rédaction du contrat de travail</li>
+        </ul>
+      </div>
+
+      <button>Le traitement des heures supplémentaires</button>
+      <div class="panel">
+        <ul>
+          <li>L’appréciation dans un cadre hebdomadaire ou annuel</li>
+          <li>Les contreparties aux heures supplémentaires</li>
+        </ul>
+      </div>
+
+      <button>La gestion des années incomplètes</button>
+      <div class="panel">
+        <ul>
+          <li>Incidence des absences sur le décompte annuel du temps de travail</li>
+          <li>Impact des entrées et sorties en cours d’année</li>
+          <li>Enregistrement dans le bulletin de paie</li>
+        </ul>
+      </div>
+
+      <button>Les obligations d’enregistrement du temps de travail</button>
+      <div class="panel">
+        <p>Respect des obligations de suivi et d’archivage du temps de travail.</p>
+      </div>
+
+      <button>Les obligations conventionnelles</button>
+      <div class="panel">
+        <p>Étude de plusieurs conventions collectives (Paysage, Production agricole, Plasturgie, Travaux agricoles, Loisirs et culture, Déchets, etc.).</p>
+      </div>
+    </section>
+
+    <!-- Infos pratiques -->
+    <section>
+      <h2>Informations pratiques</h2>
+      <p><strong>Date :</strong> 2 juillet 2025</p>
+      <p><strong>Lieu :</strong> 20 rue de l'avenir, 44330 Le Pallet</p>
+      <iframe 
+        src="https://www.google.com/maps?q=20+rue+de+l'avenir+44330+Le+Pallet&output=embed">
+      </iframe>
+    </section>
+
+    <!-- Téléchargement -->
+    <div class="downloads">
+      <a href="programme.pdf" target="_blank">📄 Télécharger le programme</a>
+    </div>
+  </main>
+
+  <!-- SCRIPT Accordéon -->
+  <script>
+    const buttons = document.querySelectorAll(".accordion button");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function() {
+        // Fermer tous les panneaux sauf celui cliqué
+        buttons.forEach(b => {
+          if (b !== this) {
+            b.classList.remove("active");
+            b.nextElementSibling.style.display = "none";
+          }
+        });
+        // Basculer le panneau cliqué
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        if (this.classList.contains("active")) {
+          panel.style.display = "block";
+        } else {
+          panel.style.display
